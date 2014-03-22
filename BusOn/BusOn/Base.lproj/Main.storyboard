@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="Sgb-Ev-Tz5">
             <objects>
-                <viewController id="of1-V4-xJW" sceneMemberID="viewController">
+                <viewController id="of1-V4-xJW" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oTn-TY-Jt2"/>
                         <viewControllerLayoutGuide type="bottom" id="ML7-Dw-eLS"/>
@@ -39,10 +39,17 @@
                                 <state key="normal" title="Entrar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="LoginClick:" destination="of1-V4-xJW" eventType="touchUpInside" id="d9h-1i-GcZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailText" destination="ur1-l2-C8r" id="zab-7D-qU4"/>
+                        <outlet property="passText" destination="AWd-xp-Ihf" id="e24-CA-Jf3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jer-8O-UdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
