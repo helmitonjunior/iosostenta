@@ -21,7 +21,7 @@
 - (IBAction)LoginClick:(id)sender {
     NSString *email = _emailText.text;
     NSString *password = _passText.text;
-    if (email){
+    if (email && password){
         
     }
     
