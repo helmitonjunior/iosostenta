@@ -128,8 +128,8 @@
 				C21B9FF518DE0835006D5364 /* AppDelegate.h */,
 				C21B9FF618DE0835006D5364 /* AppDelegate.m */,
 				C21B9FF818DE0835006D5364 /* Main.storyboard */,
-				C21B9FFB18DE0835006D5364 /* ViewController.h */,
 				C21B9FFC18DE0835006D5364 /* ViewController.m */,
+				C21B9FFB18DE0835006D5364 /* ViewController.h */,
 				C21B9FFE18DE0835006D5364 /* Images.xcassets */,
 				C21B9FED18DE0835006D5364 /* Supporting Files */,
 			);
