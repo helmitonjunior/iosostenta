@@ -18,6 +18,8 @@
 
 @implementation ViewController
 
+
+
 /*- (IBAction)LoginClick:(id)sender {
     [self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
     NSString *email = _emailText.text;
@@ -42,11 +44,29 @@
 }*/
 
 - (IBAction)loginClickTest:(id)sender {
-    [self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
+    NSString *email = _emailText.text;
+    NSString *password = _passText.text;
+    if (email.length == 0 || password.length == 0){
+    	[self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
+    }else {
+    	bool validEmail = [self validateEmail:email];
+    	bool validPassword = [self validatePassword:password];
+        
+    	if(!validEmail){
+    		[self alertStatus:@"Por favor entre com um email válido" :@"Login falhou." :0];
+    	}else if(!validPassword){
+    		[self alertStatus:@"Sua senha deve ter no mínimo 6 caracteres" :@"Login falhou" :0];
+    	}else{
+            
+    		[self LoginWithEmail:email andPassword:password andSender:sender];
+    	}
+    
+        
+    }
+    
 }
 
 - (IBAction)backgroundTap:(id)sender {
-    [self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
     [self.view endEditing:YES];
 }
 
@@ -61,10 +81,10 @@
     @try {
         
         
-        NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@", email, password];
+        NSString *post =[[NSString alloc] initWithFormat:@"SOLICITACAO=LOGIN& EMAIL=%@&SENHA=%@", email, password];
         NSLog(@"PostData: %@",post);
         
-        NSURL *url=[NSURL URLWithString:@"https://buson.info/php/"];
+        NSURL *url=[NSURL URLWithString:@"https://buson.info/php/login.php"];
         
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
@@ -111,16 +131,16 @@
             
         } else {
             //if (error) NSLog(@"Error: %@", error);
-            [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+            [self alertStatus:@"Connection Failed" :@"Sign in Failed! Hue BR" :0];
         }
         
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Sign in Failed." :@"Error!" :0];
+        [self alertStatus:@"Sign in Failed. Except." :@"Error!" :0];
     }
     if (success) {
-        [self performSegueWithIdentifier:@"login_segue" sender:self];
+        [self performSegueWithIdentifier:@"loginSegue" sender:self];
     }
 }
 

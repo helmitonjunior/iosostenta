@@ -58,9 +58,8 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="email" destination="ur1-l2-C8r" id="Rdh-LK-loO"/>
-                        <outlet property="emailText" destination="ur1-l2-C8r" id="Bhz-kN-zkp"/>
-                        <outlet property="passText" destination="AWd-xp-Ihf" id="54H-qz-ovv"/>
+                        <outlet property="emailText" destination="ur1-l2-C8r" id="fdZ-wJ-46k"/>
+                        <outlet property="passText" destination="AWd-xp-Ihf" id="xAM-t3-mjH"/>
                         <segue destination="R7P-4W-yNc" kind="modal" identifier="loginSegue" id="Sds-FO-8u0"/>
                     </connections>
                 </viewController>
