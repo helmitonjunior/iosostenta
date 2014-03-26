@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 
-@interface ViewController ()
+@interface ViewController () 
 @property (weak, nonatomic) IBOutlet UITextField *emailText;
 @property (weak, nonatomic) IBOutlet UITextField *passText;
 
@@ -18,10 +18,11 @@
 
 @implementation ViewController
 
-- (IBAction)LoginClick:(id)sender {
+/*- (IBAction)LoginClick:(id)sender {
+    [self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
     NSString *email = _emailText.text;
     NSString *password = _passText.text;
-    if (!email || !password){
+    if (email.length == 0 || password.length == 0){
     	[self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
     }else {
     	bool validEmail = [self validateEmail:email];
@@ -32,11 +33,26 @@
     	}else if(!validPassword){
     		[self alertStatus:@"Sua senha deve ter no mínimo 6 caracteres" :@"Login falhou" :0];
     	}else{
+     
     		[self LoginWithEmail:email andPassword:password andSender:sender];
     	}
         
         
     }
+}*/
+
+- (IBAction)loginClickTest:(id)sender {
+    [self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
+}
+
+- (IBAction)backgroundTap:(id)sender {
+    [self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
+    [self.view endEditing:YES];
+}
+
+-(BOOL) textFieldShouldReturn: (UITextField *) textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void) LoginWithEmail:(NSString *) email andPassword:(NSString *) password andSender:(id) sender
@@ -104,7 +120,7 @@
         [self alertStatus:@"Sign in Failed." :@"Error!" :0];
     }
     if (success) {
-        [self performSegueWithIdentifier:@"login_success" sender:self];
+        [self performSegueWithIdentifier:@"login_segue" sender:self];
     }
 }
 

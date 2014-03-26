@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="Sgb-Ev-Tz5">
             <objects>
-                <viewController id="of1-V4-xJW" sceneMemberID="viewController">
+                <viewController id="of1-V4-xJW" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oTn-TY-Jt2"/>
                         <viewControllerLayoutGuide type="bottom" id="ML7-Dw-eLS"/>
@@ -21,12 +21,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="of1-V4-xJW" id="jue-In-f7y"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AWd-xp-Ihf">
                                 <rect key="frame" x="20" y="304" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="of1-V4-xJW" id="czc-61-5i7"/>
+                                </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mLB-He-1of">
                                 <rect key="frame" x="20" y="48" width="280" height="145"/>
@@ -40,37 +46,50 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="pG9-QY-bBv" kind="modal" id="L90-C9-3u8"/>
+                                    <action selector="loginClickTest:" destination="of1-V4-xJW" eventType="touchUpInside" id="NpF-4d-Ilx"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.066666670143604279" green="0.84313732385635376" blue="0.12549020349979401" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="H1r-ML-YJl" appends="YES" id="rkO-mw-g7U"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <segue destination="R7P-4W-yNc" kind="modal" identifier="loginSegue" id="Sds-FO-8u0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jer-8O-UdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="H1r-ML-YJl">
+                    <connections>
+                        <action selector="backgroundTap:" destination="of1-V4-xJW" id="Mr3-zV-ntp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="458" y="85"/>
+            <point key="canvasLocation" x="402" y="90"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="jd3-BA-BXm">
+        <scene sceneID="iUZ-q9-fxT">
             <objects>
-                <viewController id="pG9-QY-bBv" sceneMemberID="viewController">
+                <viewController id="R7P-4W-yNc" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5uH-wj-Z8w"/>
-                        <viewControllerLayoutGuide type="bottom" id="G8a-yg-f0J"/>
+                        <viewControllerLayoutGuide type="top" id="PAA-Wb-VFi"/>
+                        <viewControllerLayoutGuide type="bottom" id="pW4-AJ-eVM"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="69L-5W-vPH">
+                    <view key="view" contentMode="scaleToFill" id="Bkw-5C-bdW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gX4-LE-UfI"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qeg-WR-K8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ols-Fi-6w1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="86"/>
+            <point key="canvasLocation" x="861" y="90"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

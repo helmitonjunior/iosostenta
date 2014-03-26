@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
+
 
 //NSString * _Account = [[KeychainItemWrapper usuarioPadrao] stringForKey:@"Account"];
 //NSString * _UserName = [[KeychainItemWrapper usuarioPadrao] stringForKey:@"Username"];
