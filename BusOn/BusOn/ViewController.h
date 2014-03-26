@@ -10,4 +10,9 @@
 
 @interface ViewController : UIViewController
 
+//NSString * _Account = [[KeychainItemWrapper usuarioPadrao] stringForKey:@"Account"];
+//NSString * _UserName = [[KeychainItemWrapper usuarioPadrao] stringForKey:@"Username"];
+//NSString * _password = [[KeychainItemWrapper usuarioPadrao] stringForKey:@"password"];
+
+
 @end
