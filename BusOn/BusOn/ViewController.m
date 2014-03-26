@@ -116,8 +116,11 @@
                                       JSONObjectWithData:urlData
                                       options:NSJSONReadingMutableContainers
                                       error:&error];
-            
-            success = [jsonData[@"success"] integerValue];
+
+            if ([jsonData[@"STATUS"] isEqualToString:@"SUCESSO"]){
+                success = 1;
+            }
+            //success = [jsonData[@"success"] integerValue];
             NSLog(@"Success: %ld",(long)success);
             
             if(success == 1)
