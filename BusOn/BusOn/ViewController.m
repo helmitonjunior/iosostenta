@@ -120,6 +120,7 @@
             if (jsonData== NULL){
                 NSLog(@"HERE!");
             }
+            //dictionary is null
             
             NSString *suc = [jsonData objectForKey:@"STATUS"];
             NSLog(@"%@", suc);
