@@ -109,18 +109,20 @@
         if ([response statusCode] >= 200 && [response statusCode] < 300)
         {
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSString *responseData2 = [responseData substringWithRange:NSMakeRange(1, [responseData length] - 2)];
+            NSString *responseData3 = [responseData2 stringByReplacingOccurrencesOfString:@"\\" withString:@""];
             NSLog(@"Response ==> %@", responseData);
+            NSLog(@"Response ==> %@", responseData2);
+            NSLog(@"Response ==> %@", responseData3);
             
+            NSData *newData = [responseData3 dataUsingEncoding:NSUTF8StringEncoding];
+
             NSError *error = nil;
             NSDictionary *jsonData = [NSJSONSerialization
-                                      JSONObjectWithData:urlData
+                                      JSONObjectWithData:newData
                                       options:NSJSONReadingMutableContainers
                                       error:&error];
            
-            if (jsonData== NULL){
-                NSLog(@"HERE!");
-            }
-            //dictionary is null
             
             NSString *suc = [jsonData objectForKey:@"STATUS"];
             NSLog(@"%@", suc);
