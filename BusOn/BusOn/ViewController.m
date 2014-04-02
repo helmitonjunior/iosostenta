@@ -20,28 +20,19 @@
 
 
 
-/*- (IBAction)LoginClick:(id)sender {
-    [self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
-    NSString *email = _emailText.text;
-    NSString *password = _passText.text;
-    if (email.length == 0 || password.length == 0){
-    	[self alertStatus:@"Por favor digite Email e Senha" :@"Login falhou." :0];
-    }else {
-    	bool validEmail = [self validateEmail:email];
-    	bool validPassword = [self validatePassword:password];
-        
-    	if(!validEmail){
-    		[self alertStatus:@"Por favor entre com um email válido" :@"Login falhou." :0];
-    	}else if(!validPassword){
-    		[self alertStatus:@"Sua senha deve ter no mínimo 6 caracteres" :@"Login falhou" :0];
-    	}else{
-     
-    		[self LoginWithEmail:email andPassword:password andSender:sender];
-    	}
-        
-        
-    }
-}*/
+- (IBAction)RegisterClick:(id)sender {
+    [self performSegueWithIdentifier:@"registerSegue" sender:self];
+
+    
+}
+
+
+
+
+
+
+
+
 
 - (IBAction)loginClickTest:(id)sender {
     NSString *email = _emailText.text;
@@ -111,8 +102,6 @@
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
             NSString *responseData2 = [responseData substringWithRange:NSMakeRange(1, [responseData length] - 2)];
             NSString *responseData3 = [responseData2 stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-            NSLog(@"Response ==> %@", responseData);
-            NSLog(@"Response ==> %@", responseData2);
             NSLog(@"Response ==> %@", responseData3);
             
             NSData *newData = [responseData3 dataUsingEncoding:NSUTF8StringEncoding];
@@ -125,6 +114,7 @@
            
             
             NSString *suc = [jsonData objectForKey:@"STATUS"];
+            
             NSLog(@"%@", suc);
 
             if ([suc isEqualToString:@"SUCESSO"]){
@@ -137,9 +127,13 @@
             {
                 NSLog(@"Login SUCCESS");
             } else {
-                
+                NSString *erroLogin = [jsonData objectForKey:@"ERRO"];
+                if ([erroLogin length] == 0){
+                    erroLogin = @"Usuario inexistente";
+                }
                 NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                [self alertStatus:error_msg :@"Sign in Failed!" :0];
+                [self alertStatus:error_msg :erroLogin :0];
+                
             }
             
         } else {
