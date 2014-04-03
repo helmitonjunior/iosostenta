@@ -23,6 +23,7 @@
 		C21BA00818DE0835006D5364 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21B9FEA18DE0835006D5364 /* UIKit.framework */; };
 		C21BA01018DE0835006D5364 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C21BA00E18DE0835006D5364 /* InfoPlist.strings */; };
 		C21BA01218DE0835006D5364 /* BusOnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C21BA01118DE0835006D5364 /* BusOnTests.m */; };
+		C2A9F2E218ED96FA001870BC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A9F2E118ED96FA001870BC /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		C21BA00D18DE0835006D5364 /* BusOnTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusOnTests-Info.plist"; sourceTree = "<group>"; };
 		C21BA00F18DE0835006D5364 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C21BA01118DE0835006D5364 /* BusOnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusOnTests.m; sourceTree = "<group>"; };
+		C2A9F2E018ED96FA001870BC /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		C2A9F2E118ED96FA001870BC /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				C21B9FF518DE0835006D5364 /* AppDelegate.h */,
 				C21B9FF618DE0835006D5364 /* AppDelegate.m */,
 				C21B9FF818DE0835006D5364 /* Main.storyboard */,
+				C2A9F2E018ED96FA001870BC /* RegisterViewController.h */,
+				C2A9F2E118ED96FA001870BC /* RegisterViewController.m */,
 				C21B9FFC18DE0835006D5364 /* ViewController.m */,
 				C21B9FFB18DE0835006D5364 /* ViewController.h */,
 				C21B9FFE18DE0835006D5364 /* Images.xcassets */,
@@ -263,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2A9F2E218ED96FA001870BC /* RegisterViewController.m in Sources */,
 				5F2D009018DE131900B5286D /* User.m in Sources */,
 				C21B9FFD18DE0835006D5364 /* ViewController.m in Sources */,
 				C21B9FF718DE0835006D5364 /* AppDelegate.m in Sources */,
