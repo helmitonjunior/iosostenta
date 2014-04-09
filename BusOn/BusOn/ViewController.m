@@ -27,13 +27,6 @@
 }
 
 
-
-
-
-
-
-
-
 - (IBAction)loginClickTest:(id)sender {
     NSString *email = _emailText.text;
     NSString *password = _passText.text;
@@ -48,7 +41,6 @@
     	}else if(!validPassword){
     		[self alertStatus:@"Sua senha deve ter no mínimo 6 caracteres" :@"Login falhou" :0];
     	}else{
-            
     		[self LoginWithEmail:email andPassword:password andSender:sender];
     	}
     
@@ -128,9 +120,9 @@
                 NSLog(@"Login SUCCESS");
             } else {
                 NSString *erroLogin = [jsonData objectForKey:@"ERRO"];
-                if ([erroLogin length] == 0){
+                /*if ([erroLogin length] == 0){
                     erroLogin = @"Usuario inexistente";
-                }
+                }*/
                 NSString *error_msg = (NSString *) jsonData[@"error_message"];
                 [self alertStatus:error_msg :erroLogin :0];
                 
