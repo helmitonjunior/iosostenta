@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "Communication.h"
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameText;
@@ -24,28 +25,35 @@
 }
 
 - (IBAction)registerUser:(id)sender {
+    Communication *comm = [[Communication alloc] init];
     NSString *name = _nameText.text;
     NSString *email = _emailText.text;
     NSString *username = _userText.text;
     NSString *password = _passText.text;
     NSString *confirm = _cPassText.text;
     if (name.length == 0 || email.length == 0 || username.length == 0 || password.length == 0 || confirm.length == 0){
-        [self alertStatus:@"Por favor preencha todos os campos" :@"Cadastro falhou" :0];
+        [comm alertStatus:@"Por favor preencha todos os campos" :@"Cadastro falhou" :0 :self];
     }else{
-        bool validEmail = [self validateEmail:email];
-    	bool validPassword = [self validatePassword:password];
-        bool validUsername = [self validateUsername:username];
+        bool validEmail = [comm validateEmail:email];
+    	bool validPassword = [comm validatePassword:password];
+        bool validUsername = [comm validateUsername:username];
         
         if (!validEmail){
-            [self alertStatus:@"Por favor entre com um email válido" :@"Cadastro falhou." :0];
+            [comm alertStatus:@"Por favor entre com um email válido" :@"Cadastro falhou." :0 :self];
         }else if(!validUsername){
-    		[self alertStatus:@"Por favor entre com um username válido" :@"Cadastro falhou" :0];
+    		[comm alertStatus:@"Por favor entre com um username válido" :@"Cadastro falhou" :0 :self];
     	}else if(!validPassword){
-    		[self alertStatus:@"Sua senha deve ter no mínimo 6 caracteres" :@"Cadastro falhou" :0];
+    		[comm alertStatus:@"Sua senha deve ter no mínimo 6 caracteres" :@"Cadastro falhou" :0 :self];
     	}else if(![confirm isEqualToString:password]){
-            [self alertStatus:@"Confirme sua senha corretamente" :@"Cadastro falhou" :0];
+            [comm alertStatus:@"Confirme sua senha corretamente" :@"Cadastro falhou" :0 :self];
         }else{
-            NSLog(@"lalala");
+            NSString *postString = [[NSString alloc] initWithFormat:@"SOLICITACAO=CADASTRO&NOME=%@&USERNAME=%@&EMAIL=%@&SENHA=%@", name, username, email, password];
+            NSString *urlString = @"https://buson.info/php/cadastro.php";
+            bool success = [comm communicationWithServer:urlString andString:postString andSender:sender andDelegate:self];
+            if (success){
+                [comm alertStatus:@"Cadastro feito com sucesso." :@"OK!" :0 :self];
+                [self performSegueWithIdentifier:@"backToLoginSegue" sender:self];
+            }
         }
 
     }
@@ -53,68 +61,17 @@
     
     
 }
-- (void) RegisterWithName:(NSString *) name
-                 andEmail:(NSString *) email
-              andUsername:(NSString *) username
-              andPassword:(NSString *) password
-               andConfirm:(NSString *) confirm
-                andSender:(id) sender
-{
-    
-    
-    
-    
-    
-}
-
 - (IBAction)backgroundTap:(id)sender {
     [self.view endEditing:YES];
 }
 
+//- (IBAction)backgroundTap:(id)sender {
+    //[self.view endEditing:YES];
+//}
+
 -(BOOL) textFieldShouldReturn: (UITextField *) textField{
     [textField resignFirstResponder];
     return YES;
-}
-
-
-- (BOOL) validateEmail: (NSString *) email {
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    
-    return [emailTest evaluateWithObject:email];
-}
-
-- (BOOL) validatePassword: (NSString *)  password {
-	if ([password length] < 6) {
-        return NO;
-    }
-	NSString *passwordRegex = @"([a-zA-Z0-9.-_]+)";
-	NSPredicate *passwordTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordRegex];
-    
-	return [passwordTest evaluateWithObject:password];
-    
-}
-
-- (BOOL) validateUsername: (NSString *)  username {
-    if ([username length] < 4) {
-            return NO;
-    }
-    NSString *usernameRegex = @"([a-zA-Z0-9.-_]+)";
-    NSPredicate *usernameTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", usernameRegex];
-                  
-    return [usernameTest evaluateWithObject:username];
-                  
-}
-
-- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:msg
-                                                       delegate:self
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil, nil];
-    alertView.tag = tag;
-    [alertView show];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

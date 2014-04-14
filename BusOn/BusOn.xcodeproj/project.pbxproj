@@ -23,6 +23,7 @@
 		C21BA00818DE0835006D5364 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21B9FEA18DE0835006D5364 /* UIKit.framework */; };
 		C21BA01018DE0835006D5364 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C21BA00E18DE0835006D5364 /* InfoPlist.strings */; };
 		C21BA01218DE0835006D5364 /* BusOnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C21BA01118DE0835006D5364 /* BusOnTests.m */; };
+		C2730E7618FC565500974EC8 /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = C2730E7518FC565500974EC8 /* Communication.m */; };
 		C2A9F2E218ED96FA001870BC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A9F2E118ED96FA001870BC /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +46,7 @@
 		C21B9FEA18DE0835006D5364 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C21B9FEE18DE0835006D5364 /* BusOn-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusOn-Info.plist"; sourceTree = "<group>"; };
 		C21B9FF018DE0835006D5364 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C21B9FF218DE0835006D5364 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C21B9FF218DE0835006D5364 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; };
 		C21B9FF418DE0835006D5364 /* BusOn-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusOn-Prefix.pch"; sourceTree = "<group>"; };
 		C21B9FF518DE0835006D5364 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C21B9FF618DE0835006D5364 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +59,8 @@
 		C21BA00D18DE0835006D5364 /* BusOnTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusOnTests-Info.plist"; sourceTree = "<group>"; };
 		C21BA00F18DE0835006D5364 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C21BA01118DE0835006D5364 /* BusOnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusOnTests.m; sourceTree = "<group>"; };
+		C2730E7418FC565500974EC8 /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Communication.h; path = ../Communication.h; sourceTree = "<group>"; };
+		C2730E7518FC565500974EC8 /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Communication.m; path = ../Communication.m; sourceTree = "<group>"; };
 		C2A9F2E018ED96FA001870BC /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		C2A9F2E118ED96FA001870BC /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +138,8 @@
 				C2A9F2E118ED96FA001870BC /* RegisterViewController.m */,
 				C21B9FFC18DE0835006D5364 /* ViewController.m */,
 				C21B9FFB18DE0835006D5364 /* ViewController.h */,
+				C2730E7418FC565500974EC8 /* Communication.h */,
+				C2730E7518FC565500974EC8 /* Communication.m */,
 				C21B9FFE18DE0835006D5364 /* Images.xcassets */,
 				C21B9FED18DE0835006D5364 /* Supporting Files */,
 			);
@@ -270,6 +275,7 @@
 			files = (
 				C2A9F2E218ED96FA001870BC /* RegisterViewController.m in Sources */,
 				5F2D009018DE131900B5286D /* User.m in Sources */,
+				C2730E7618FC565500974EC8 /* Communication.m in Sources */,
 				C21B9FFD18DE0835006D5364 /* ViewController.m in Sources */,
 				C21B9FF718DE0835006D5364 /* AppDelegate.m in Sources */,
 				C21B9FF318DE0835006D5364 /* main.m in Sources */,
